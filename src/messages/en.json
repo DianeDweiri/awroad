@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "network": "ROADs network",
+    "news": "News",
+    "resources": "Resources",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  }
+}
