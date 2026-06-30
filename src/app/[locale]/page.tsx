@@ -278,23 +278,39 @@ export default function HomePage() {
               <div style={{ width: 130, height: 130, borderRadius: '50%', overflow: 'hidden', border: '2px solid rgba(79,126,255,0.3)', boxShadow: '0 0 32px rgba(79,126,255,0.25)', margin: '0 auto 12px' }}>
                 <img src="/awni-Kh.jpg" alt="Dr. Awni Al-Khasawneh" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: '#EEF0F8' }}>Dr. Awni Mohammad Al-Khasawneh</div>
-              <div style={{ fontSize: 11, color: '#6B7A9F', marginTop: 4, lineHeight: 1.5, maxWidth: 140 }}>Executive Director, AW-ROAD & Arab-LOAD</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: '#EEF0F8' }}>{isRtl ? 'د. عوني محمد الخصاونة' : 'Dr. Awni Mohammad Al-Khasawneh'}</div>
+              <div style={{ fontSize: 11, color: '#6B7A9F', marginTop: 4, lineHeight: 1.5, maxWidth: 140 }}>{isRtl ? 'المدير التنفيذي، Arab-ROAD و Arab-LOAD' : 'Executive Director, AW-ROAD & Arab-LOAD'}</div>
             </div>
 
             {/* Speech text */}
             <div style={{ flex: 1, minWidth: 280 }}>
               <div style={{ background: 'rgba(13,17,32,0.6)', border: '1px solid rgba(79,126,255,0.1)', borderRadius: 16, padding: '32px 36px', backdropFilter: 'blur(12px)' }}>
-                <div style={{ fontSize: 14, lineHeight: 2, color: '#9CA3AF', fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif' }}>
-                  <p style={{ marginBottom: 16 }}>In the name of Allah, the Most Gracious, the Most Merciful.</p>
-                  <p style={{ marginBottom: 16 }}>It is our pleasure to welcome you to the official website of the Arab Regional Office of Astronomy for Development — Arab-ROAD, and the Arabic Language Expertise Center — Arab-LOAD, both of which are part of the network of the IAU Office of Astronomy for Development — IAU-OAD.</p>
-                  <p style={{ marginBottom: 16 }}>From Amman, the capital of the Hashemite Kingdom of Jordan, our official journey began on 2–3 December 2015, marking the joining of the Arab Regional Office and the Arabic Language Expertise Center to a global network that believes astronomy is not only a scientific field of knowledge, but also a civilizational tool for education, development, capacity building, and dialogue among peoples.</p>
-                  <p style={{ marginBottom: 16 }}>The Office takes pride in serving as an inclusive Arab umbrella that brings together 18 Arab countries, working collectively to advance astronomy and space sciences, promote scientific culture, empower youth, students, researchers, and amateur astronomers, and connect the Arab community with leading international initiatives in astronomy for development.</p>
-                  <p style={{ marginBottom: 16 }}>Since its establishment, the Office has sought to serve as an active bridge between Arab scientific institutions and their counterparts around the world — through supporting educational programs, organizing lectures and workshops, encouraging astronomical observation, developing scientific content in Arabic, promoting the participation of youth and women, and strengthening awareness of dark skies, astrotourism, and inclusive science communication.</p>
-                  <p style={{ marginBottom: 16 }}>The Arabic Language Expertise Center also works to bring astronomical knowledge closer to the Arabic-speaking reader by supporting Arabization, developing scientific terminology, and facilitating access to educational resources for students, teachers, and interested communities.</p>
-                  <p style={{ marginBottom: 16 }}>Our mission extends to cooperation with similar regional offices and language expertise centers within the global OAD network, through the exchange of expertise, the development of joint initiatives, and the expansion of astronomy's impact on sustainable development.</p>
-                  <p style={{ marginBottom: 16 }}>We believe that the sky, in its vastness and beauty, is a shared language of humanity, and that astronomy has the power to inspire generations and open new horizons for science, knowledge, and innovation.</p>
-                  <p style={{ marginBottom: 0 }}>We warmly welcome you all and invite you to be partners in this journey. May Allah grant us success.</p>
+                <div style={{ fontSize: 14, lineHeight: 2, color: '#9CA3AF', fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif', textAlign: isRtl ? 'right' : 'left' }}>
+                  {isRtl ? (
+                    <>
+                      <p style={{ marginBottom: 16 }}>بسم الله الرحمن الرحيم.</p>
+                      <p style={{ marginBottom: 16 }}>يسرنا أن نرحب بكم في الموقع الرسمي للمكتب الإقليمي للعالم العربي لعلم الفلك من أجل التنمية — Arab-ROAD، ومركز اللغة العربية المتخصص — Arab-LOAD، وكلاهما جزء من شبكة مكتب الاتحاد الفلكي الدولي لعلم الفلك من أجل التنمية — IAU-OAD.</p>
+                      <p style={{ marginBottom: 16 }}>من عمّان، عاصمة المملكة الأردنية الهاشمية، بدأت رحلتنا الرسمية في 2–3 كانون الأول/ديسمبر 2015، إيذاناً بانضمام المكتب الإقليمي ومركز اللغة العربية المتخصص إلى شبكة عالمية تؤمن بأن علم الفلك ليس فقط حقلاً علمياً للمعرفة، بل أداة حضارية للتعليم والتنمية وبناء القدرات والحوار بين الشعوب.</p>
+                      <p style={{ marginBottom: 16 }}>يفخر المكتب بدوره كمظلة عربية جامعة تضم 18 دولة عربية، تعمل معاً على النهوض بعلم الفلك وعلوم الفضاء، وتعزيز الثقافة العلمية، وتمكين الشباب والطلبة والباحثين وهواة الفلك، وربط المجتمع العربي بالمبادرات الدولية الرائدة في علم الفلك من أجل التنمية.</p>
+                      <p style={{ marginBottom: 16 }}>سعى المكتب منذ تأسيسه إلى أن يكون جسراً فاعلاً بين المؤسسات العلمية العربية ونظيراتها حول العالم — من خلال دعم البرامج التعليمية، وتنظيم المحاضرات وورش العمل، وتشجيع الرصد الفلكي، وتطوير المحتوى العلمي باللغة العربية، وتعزيز مشاركة الشباب والمرأة، وترسيخ الوعي بالسماء المظلمة والسياحة الفلكية والتواصل العلمي الشامل.</p>
+                      <p style={{ marginBottom: 16 }}>كما يعمل مركز اللغة العربية المتخصص على تقريب المعرفة الفلكية من القارئ الناطق بالعربية من خلال دعم التعريب، وتطوير المصطلحات العلمية، وتيسير الوصول إلى الموارد التعليمية للطلبة والمعلمين والمهتمين.</p>
+                      <p style={{ marginBottom: 16 }}>تمتد رسالتنا لتشمل التعاون مع المكاتب الإقليمية ومراكز خبرة اللغة المماثلة ضمن شبكة OAD العالمية، من خلال تبادل الخبرات، وتطوير المبادرات المشتركة، وتوسيع أثر علم الفلك على التنمية المستدامة.</p>
+                      <p style={{ marginBottom: 16 }}>نؤمن بأن السماء، بشساعتها وجمالها، لغة مشتركة للإنسانية، وأن علم الفلك يملك القدرة على إلهام الأجيال وفتح آفاق جديدة للعلم والمعرفة والابتكار.</p>
+                      <p style={{ marginBottom: 0 }}>نرحب بكم جميعاً وندعوكم لتكونوا شركاء في هذه الرحلة. والله ولي التوفيق.</p>
+                    </>
+                  ) : (
+                    <>
+                      <p style={{ marginBottom: 16 }}>In the name of Allah, the Most Gracious, the Most Merciful.</p>
+                      <p style={{ marginBottom: 16 }}>It is our pleasure to welcome you to the official website of the Arab Regional Office of Astronomy for Development — Arab-ROAD, and the Arabic Language Expertise Center — Arab-LOAD, both of which are part of the network of the IAU Office of Astronomy for Development — IAU-OAD.</p>
+                      <p style={{ marginBottom: 16 }}>From Amman, the capital of the Hashemite Kingdom of Jordan, our official journey began on 2–3 December 2015, marking the joining of the Arab Regional Office and the Arabic Language Expertise Center to a global network that believes astronomy is not only a scientific field of knowledge, but also a civilizational tool for education, development, capacity building, and dialogue among peoples.</p>
+                      <p style={{ marginBottom: 16 }}>The Office takes pride in serving as an inclusive Arab umbrella that brings together 18 Arab countries, working collectively to advance astronomy and space sciences, promote scientific culture, empower youth, students, researchers, and amateur astronomers, and connect the Arab community with leading international initiatives in astronomy for development.</p>
+                      <p style={{ marginBottom: 16 }}>Since its establishment, the Office has sought to serve as an active bridge between Arab scientific institutions and their counterparts around the world — through supporting educational programs, organizing lectures and workshops, encouraging astronomical observation, developing scientific content in Arabic, promoting the participation of youth and women, and strengthening awareness of dark skies, astrotourism, and inclusive science communication.</p>
+                      <p style={{ marginBottom: 16 }}>The Arabic Language Expertise Center also works to bring astronomical knowledge closer to the Arabic-speaking reader by supporting Arabization, developing scientific terminology, and facilitating access to educational resources for students, teachers, and interested communities.</p>
+                      <p style={{ marginBottom: 16 }}>Our mission extends to cooperation with similar regional offices and language expertise centers within the global OAD network, through the exchange of expertise, the development of joint initiatives, and the expansion of astronomy's impact on sustainable development.</p>
+                      <p style={{ marginBottom: 16 }}>We believe that the sky, in its vastness and beauty, is a shared language of humanity, and that astronomy has the power to inspire generations and open new horizons for science, knowledge, and innovation.</p>
+                      <p style={{ marginBottom: 0 }}>We warmly welcome you all and invite you to be partners in this journey. May Allah grant us success.</p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

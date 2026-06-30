@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
   { key: 'home',      href: '/' },
@@ -33,6 +33,7 @@ export default function Header() {
   const [homeOpen, setHomeOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hovered,  setHovered]  = useState<string | null>(null);
+  const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -298,48 +299,131 @@ export default function Header() {
         {/* ── Mobile Menu ── */}
         {open && (
           <div style={{
-            background: 'rgba(6,8,15,0.97)',
+            background: 'rgba(6,8,15,0.98)',
             backdropFilter: 'blur(24px)',
             borderTop: '1px solid rgba(79,126,255,0.12)',
-            padding: '16px 28px 28px',
+            padding: '20px 20px 28px',
+            maxHeight: 'calc(100vh - 82px)',
+            overflowY: 'auto',
           }}>
-            {navLinks.map(({ key, href }) => (
-              <Link
-                key={key}
-                href={localePath(href)}
-                onClick={() => setOpen(false)}
-                style={{
-                  display: 'block',
-                  padding: '12px 0',
-                  fontSize: 15,
-                  fontWeight: 500,
-                  textDecoration: 'none',
-                  color: isActive(href) ? '#A78BFA' : '#6B7A9F',
-                  borderBottom: '1px solid rgba(79,126,255,0.08)',
-                  fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
-                }}
-              >
-                {navLabels[key][locale]}
-              </Link>
-            ))}
+            {/* Lang switcher pinned at top */}
             <Link
               href={switchPath()}
               onClick={() => setOpen(false)}
               style={{
-                display: 'inline-block',
-                marginTop: 16,
-                padding: '7px 20px',
-                borderRadius: 8,
-                fontSize: 13,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+                marginBottom: 18,
+                padding: '11px 0',
+                borderRadius: 10,
+                fontSize: 13.5,
                 fontWeight: 700,
                 textDecoration: 'none',
-                border: '1px solid rgba(200,168,75,0.45)',
+                border: '1px solid rgba(200,168,75,0.4)',
                 color: '#C8A84B',
-                background: 'rgba(200,168,75,0.07)',
+                background: 'rgba(200,168,75,0.08)',
               }}
             >
               {other === 'ar' ? 'العربية' : 'English'}
             </Link>
+
+            {navLinks.map(({ key, href }) => {
+              if (key === 'home') {
+                return (
+                  <div key={key} style={{ borderBottom: '1px solid rgba(79,126,255,0.08)' }}>
+                    <div
+                      onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '15px 6px',
+                        fontSize: 15.5,
+                        fontWeight: 600,
+                        color: isActive(href) ? '#A78BFA' : '#EEF0F8',
+                        fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <Link
+                        href={localePath(href)}
+                        onClick={(e) => { e.stopPropagation(); setOpen(false); }}
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                      >
+                        {navLabels[key][locale]}
+                      </Link>
+                      <ChevronDown
+                        size={18}
+                        style={{
+                          color: '#6B7A9F',
+                          transition: 'transform 0.2s ease',
+                          transform: mobileHomeOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        }}
+                      />
+                    </div>
+                    {mobileHomeOpen && (
+                      <div style={{ paddingBottom: 8 }}>
+                        {[
+                          { id: 'opening-speech',   en: 'Opening Speech',   ar: 'كلمة الافتتاح'   },
+                          { id: 'opening-ceremony', en: 'Opening Ceremony', ar: 'حفل الافتتاح'     },
+                          { id: 'awroad-role',      en: 'AW-ROAD Role',     ar: 'دور المكتب'       },
+                        ].map(item => (
+                            <a
+                          
+                            key={item.id}
+                            href={`#${item.id}`}
+                            onClick={e => {
+                              e.preventDefault();
+                              setOpen(false);
+                              setMobileHomeOpen(false);
+                              if (pathname === localePath('/') || pathname === `/${locale}`) {
+                                document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                              } else {
+                                window.location.href = `${localePath('/')}#${item.id}`;
+                              }
+                            }}
+                            style={{
+                              display: 'block',
+                              padding: '11px 16px',
+                              marginBottom: 4,
+                              borderRadius: 8,
+                              fontSize: 13.5,
+                              textDecoration: 'none',
+                              color: '#9CA3AF',
+                              background: 'rgba(79,126,255,0.05)',
+                              fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
+                            }}
+                          >
+                            {isRtl ? item.ar : item.en}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={key}
+                  href={localePath(href)}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '15px 6px',
+                    fontSize: 15.5,
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                    color: isActive(href) ? '#A78BFA' : '#EEF0F8',
+                    borderBottom: '1px solid rgba(79,126,255,0.08)',
+                    fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
+                  }}
+                >
+                  {navLabels[key][locale]}
+                </Link>
+              );
+            })}
           </div>
         )}
       </header>
