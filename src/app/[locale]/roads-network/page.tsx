@@ -1,9 +1,10 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
-type Office = { en: string; ar: string; country_en: string; country_ar: string };
+type Office = { en: string; ar: string; country_en: string; country_ar: string; href?: string };
 
 const offices: Office[] = [
   { en: 'Arab World and Arabic Language Regional Office', ar: 'المكتب الإقليمي للعالم العربي واللغة العربية', country_en: 'Jordan', country_ar: 'الأردن' },
@@ -16,7 +17,7 @@ const offices: Office[] = [
   { en: 'Europe Regional Node', ar: 'المكتب الإقليمي لأوروبا', country_en: 'Netherlands', country_ar: 'هولندا' },
   { en: 'North America Regional Node', ar: 'المكتب الإقليمي لأمريكا الشمالية', country_en: 'United States', country_ar: 'الولايات المتحدة' },
   { en: 'Portuguese Language Centre', ar: 'مركز اللغة البرتغالية', country_en: 'Portugal', country_ar: 'البرتغال' },
-  { en: 'South West and Central Asia Regional Node', ar: 'المكتب الإقليمي لجنوب غرب ووسط آسيا', country_en: 'Armenia', country_ar: 'أرمينيا' },
+  { en: 'South West and Central Asia Regional Node', ar: 'المكتب الإقليمي لجنوب غرب ووسط آسيا', country_en: 'Armenia', country_ar: 'أرمينيا', href: '/south-asia' },
 ];
 
 const t = {
@@ -84,12 +85,30 @@ export default function RoadsNetworkPage() {
                 </tr>
               </thead>
               <tbody>
-                {offices.map((o, i) => (
-                  <tr key={i} style={{ borderBottom: i < offices.length - 1 ? '1px solid rgba(79,126,255,0.06)' : 'none' }}>
-                    <td style={{ padding: '16px 24px', fontSize: 14, color: '#EEF0F8' }}>{isRtl ? o.ar : o.en}</td>
-                    <td style={{ padding: '16px 24px', fontSize: 14, color: '#9CA3AF' }}>{isRtl ? o.country_ar : o.country_en}</td>
-                  </tr>
-                ))}
+                {offices.map((o, i) => {
+                  const row = (
+                    <tr
+                      key={i}
+                      style={{
+                        borderBottom: i < offices.length - 1 ? '1px solid rgba(79,126,255,0.06)' : 'none',
+                        cursor: o.href ? 'pointer' : 'default',
+                        transition: 'background 0.2s ease',
+                      }}
+                      onMouseEnter={(e) => { if (o.href) (e.currentTarget as HTMLElement).style.background = 'rgba(79,126,255,0.06)'; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                    >
+                      <td style={{ padding: '16px 24px', fontSize: 14, color: o.href ? '#A78BFA' : '#EEF0F8', fontWeight: o.href ? 700 : 400 }}>
+                        {isRtl ? o.ar : o.en}{o.href && (isRtl ? ' ←' : ' →')}
+                      </td>
+                      <td style={{ padding: '16px 24px', fontSize: 14, color: '#9CA3AF' }}>{isRtl ? o.country_ar : o.country_en}</td>
+                    </tr>
+                  );
+                  return o.href ? (
+                    <Link key={i} href={`/${locale}${o.href}`} style={{ display: 'contents', textDecoration: 'none' }} legacyBehavior={false}>
+                      {row}
+                    </Link>
+                  ) : row;
+                })}
               </tbody>
             </table>
           </div>
