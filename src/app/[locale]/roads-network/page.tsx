@@ -8,11 +8,11 @@ type Office = { en: string; ar: string; country_en: string; country_ar: string; 
 
 const offices: Office[] = [
   { en: 'Arab World and Arabic Language Regional Office', ar: 'المكتب الإقليمي للعالم العربي واللغة العربية', country_en: 'Jordan', country_ar: 'الأردن' },
-  { en: 'Southern African Regional Office of Astronomy for Development', ar: 'المكتب الإقليمي للجنوب الأفريقي لعلم الفلك للتنمية', country_en: 'Zambia', country_ar: 'زامبيا' },
-  { en: 'The West African Regional Office', ar: 'المكتب الإقليمي لغرب إفريقيا', country_en: 'Nigeria', country_ar: 'نيجيريا' },
-  { en: 'East African Regional Office of Astronomy for Development', ar: 'المكتب الإقليمي لشرق إفريقيا لعلم الفلك من أجل التنمية', country_en: 'Ethiopia', country_ar: 'إثيوبيا' },
-  { en: 'The South East Asia Regional Node', ar: 'المكتب الإقليمي لجنوب شرق آسيا', country_en: 'Thailand', country_ar: 'تايلاند' },
-  { en: 'The East Asia Regional Node and Chinese Language Expertise Centre', ar: 'مركز شرق آسيا الإقليمي وخبراء اللغة الصينية', country_en: 'China', country_ar: 'الصين' },
+  { en: 'Southern African Regional Office of Astronomy for Development', ar: 'المكتب الإقليمي للجنوب الأفريقي لعلم الفلك للتنمية', country_en: 'Zambia', country_ar: 'زامبيا', href: '/southern-african' },
+  { en: 'The West African Regional Office', ar: 'المكتب الإقليمي لغرب إفريقيا', country_en: 'Nigeria', country_ar: 'نيجيريا', href: 'https://awroad.com/west-africa/' },
+  { en: 'East African Regional Office of Astronomy for Development', ar: 'المكتب الإقليمي لشرق إفريقيا لعلم الفلك من أجل التنمية', country_en: 'Ethiopia', country_ar: 'إثيوبيا', href: 'https://awroad.com/east-african/' },
+  { en: 'The South East Asia Regional Node', ar: 'المكتب الإقليمي لجنوب شرق آسيا', country_en: 'Thailand', country_ar: 'تايلاند', href: '/south-east-asia' },
+  { en: 'The East Asia Regional Node and Chinese Language Expertise Centre', ar: 'مركز شرق آسيا الإقليمي وخبراء اللغة الصينية', country_en: 'China', country_ar: 'الصين', href: '/east-asia' },
   { en: 'The Andean Regional Office', ar: 'مكتب الأنديز الإقليمي', country_en: 'Argentina', country_ar: 'الأرجنتين' },
   { en: 'Europe Regional Node', ar: 'المكتب الإقليمي لأوروبا', country_en: 'Netherlands', country_ar: 'هولندا' },
   { en: 'North America Regional Node', ar: 'المكتب الإقليمي لأمريكا الشمالية', country_en: 'United States', country_ar: 'الولايات المتحدة' },
@@ -111,6 +111,37 @@ export default function RoadsNetworkPage() {
                 })}
               </tbody>
             </table>
+          </div>
+          {/* ── Resources ── */}
+          <div style={{ marginTop: 48, display: 'grid', gap: 14 }}>
+            <a
+            
+              href="https://awroad.com/wp-content/uploads/2021/03/strategicplan-2020-2030-1.pdf"
+              target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 22px', background: 'rgba(13,17,32,0.6)', border: '1px solid rgba(79,126,255,0.1)', borderRadius: 12, textDecoration: 'none', backdropFilter: 'blur(12px)', transition: 'border-color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(167,139,250,0.35)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(79,126,255,0.1)')}
+            >
+              <span style={{ fontSize: 20 }}>📄</span>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: '#EEF0F8', fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif' }}>{isRtl ? 'الخطة الاستراتيجية 2020-2030' : 'IAU Strategic Plan 2020–2030'}</div>
+                <div style={{ fontSize: 12, color: '#6B7A9F', marginTop: 2 }}>PDF</div>
+              </div>
+            </a>
+            
+            <a
+              href="https://astro4dev.org/"
+              target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 22px', background: 'rgba(13,17,32,0.6)', border: '1px solid rgba(79,126,255,0.1)', borderRadius: 12, textDecoration: 'none', backdropFilter: 'blur(12px)', transition: 'border-color 0.2s' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(167,139,250,0.35)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(79,126,255,0.1)')}
+            >
+              <span style={{ fontSize: 20 }}>🌐</span>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: '#EEF0F8', fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif' }}>{isRtl ? 'موقع مكتب الفلك من أجل التنمية' : 'IAU Office of Astronomy for Development'}</div>
+                <div style={{ fontSize: 12, color: '#6B7A9F', marginTop: 2 }}>astro4dev.org</div>
+              </div>
+            </a>
           </div>
         </div>
       </section>

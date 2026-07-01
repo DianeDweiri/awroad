@@ -15,6 +15,7 @@ const navLinks = [
   { key: 'contact',   href: '/contact' },
   { key: 'steering',  href: '/steering-committee' },
   { key: 'gallery',   href: '/gallery' },
+  { key: 'newsletters', href: '/newsletters' },
 ];
 
 const navLabels: Record<string, { en: string; ar: string }> = {
@@ -26,6 +27,7 @@ const navLabels: Record<string, { en: string; ar: string }> = {
   contact:   { en: 'Contact',       ar: 'اتصل بنا'    },
   steering:  { en: 'Steering Committee', ar: 'اللجنة التوجيهية' },
   gallery:   { en: 'Gallery',       ar: 'معرض الصور'  },
+  newsletters: { en: 'Newsletters',   ar: 'النشرات'      },
 };
 
 export default function Header() {
@@ -103,6 +105,10 @@ export default function Header() {
               <div style={{ width: 1, height: 38, background: 'rgba(0,0,0,0.12)' }} />
               <div style={{ position: 'relative', width: 48, height: 48, flexShrink: 0 }}>
                 <Image src="/IAU_logo.svg" alt="IAU Logo" fill style={{ objectFit: 'contain' }} />
+              </div>
+              <div style={{ width: 1, height: 38, background: 'rgba(0,0,0,0.12)' }} />
+              <div style={{ position: 'relative', width: 48, height: 48, flexShrink: 0 }}>
+                <Image src="/AUASS_s-removebg-preview.png" alt="AUASS Logo" fill style={{ objectFit: 'contain' }} />
               </div>
             </div>
 

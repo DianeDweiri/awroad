@@ -184,7 +184,7 @@ export default function InsightsPage() {
                 }}
               >
                 {item.image_url && (
-                  <div style={{ width: '100%', aspectRatio: '16 / 9', overflow: 'hidden' }}>
+                  <div style={{ width: '100%', aspectRatio: '1 / 1', overflow: 'hidden' }}>
                     <img
                       src={item.image_url}
                       alt={isRtl ? item.title_ar : item.title_en}
@@ -192,31 +192,56 @@ export default function InsightsPage() {
                     />
                   </div>
                 )}
-                <div style={{ padding: '22px 24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ padding: '18px 20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                   <h2
                     style={{
-                      fontSize: 17,
+                      fontSize: 15,
                       fontWeight: 700,
                       color: '#EEF0F8',
-                      marginBottom: 10,
+                      marginBottom: 8,
                       fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
                       textAlign: isRtl ? 'right' : 'left',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
                     }}
                   >
                     {isRtl ? item.title_ar : item.title_en}
                   </h2>
                   <p
                     style={{
-                      fontSize: 13.5,
-                      lineHeight: 1.8,
+                      fontSize: 13,
+                      lineHeight: 1.7,
                       color: '#9CA3AF',
                       fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
                       textAlign: isRtl ? 'right' : 'left',
                       flex: 1,
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
                     }}
                   >
                     {isRtl ? item.body_ar : item.body_en}
                   </p>
+                  <a
+                  
+                    href={`/${locale}/insights/${item.id}`}
+                    style={{
+                      marginTop: 14,
+                      fontSize: 12.5,
+                      fontWeight: 700,
+                      color: '#A78BFA',
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      fontFamily: isRtl ? 'Cairo, sans-serif' : 'Inter, sans-serif',
+                    }}
+                  >
+                    {isRtl ? '← اقرأ المزيد' : 'Read More →'}
+                  </a>
                 </div>
               </div>
             ))}
