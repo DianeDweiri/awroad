@@ -154,7 +154,7 @@ export default function InsightsPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(3, 1fr)',
               gap: 28,
             }}
           >
@@ -184,7 +184,7 @@ export default function InsightsPage() {
                 }}
               >
                 {item.image_url && (
-                  <div style={{ width: '100%', aspectRatio: '16 / 10', overflow: 'hidden' }}>
+                  <div style={{ width: '100%', aspectRatio: '16 / 9', overflow: 'hidden' }}>
                     <img
                       src={item.image_url}
                       alt={isRtl ? item.title_ar : item.title_en}

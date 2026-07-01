@@ -13,6 +13,7 @@ const navLinks = [
   { key: 'news',      href: '/news' },
   { key: 'insights',  href: '/insights' },
   { key: 'contact',   href: '/contact' },
+  { key: 'steering',  href: '/steering-committee' },
   { key: 'gallery',   href: '/gallery' },
 ];
 
@@ -23,6 +24,7 @@ const navLabels: Record<string, { en: string; ar: string }> = {
   news:      { en: 'News',          ar: 'الأخبار'     },
   insights:  { en: 'Insights',      ar: 'مقالات'      },
   contact:   { en: 'Contact',       ar: 'اتصل بنا'    },
+  steering:  { en: 'Steering Committee', ar: 'اللجنة التوجيهية' },
   gallery:   { en: 'Gallery',       ar: 'معرض الصور'  },
 };
 
