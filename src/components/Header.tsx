@@ -133,7 +133,7 @@ export default function Header() {
                 backgroundClip: 'text',
                 color: 'transparent',
                 filter: 'drop-shadow(0 0 6px rgba(200,168,75,0.5))',
-              }}>Arab World Regional Office of Astronomy for Development</span>
+              }} className="header-subtitle">Arab World Regional Office of Astronomy for Development</span>
               <span style={{
                 fontSize: 10.5,
                 fontFamily: 'Cairo, sans-serif',
@@ -142,7 +142,7 @@ export default function Header() {
                 backgroundClip: 'text',
                 color: 'transparent',
                 filter: 'drop-shadow(0 0 6px rgba(200,168,75,0.5))',
-              }}>المكتب الإقليمي للعالم العربي للفلك من أجل التنمية</span>
+              }} className="header-subtitle">المكتب الإقليمي للعالم العربي للفلك من أجل التنمية</span>
             </div>
           </Link>
 
@@ -444,6 +444,10 @@ export default function Header() {
         @media (max-width: 900px) {
           .desk-nav { display: none !important; }
           .burger   { display: block !important; }
+          .header-subtitle { display: none !important; }
+          .logo-pill { padding: 4px 8px !important; gap: 6px !important; }
+          .logo-pill img { width: 32px !important; height: 32px !important; }
+          .header-title { font-size: 14px !important; }
         }
       `}</style>
     </>
