@@ -14,9 +14,8 @@ type GalleryItem = {
 
 const categories = [
   { key: 'all',         en: 'All',         ar: 'الكل'        },
-  { key: 'before-2026', en: 'Before 2026',  ar: 'قبل 2026'   },
+  { key: 'before 2026', en: 'Before 2026',  ar: 'قبل 2026'   },
   { key: '2026',        en: '2026',         ar: '2026'        },
-  { key: '2027',        en: '2027',         ar: '2027'        },
 ];
 
 const t = {
